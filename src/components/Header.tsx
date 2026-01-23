@@ -37,7 +37,13 @@ export const Header = () => {
                     isScrolled ? "glass-white py-3 border-primary/10 shadow-2xl" : "bg-transparent py-0 border-transparent"
                 )}>
                     {/* Logo */}
-                    <a href="#" className="z-50 relative block hover:scale-105 transition-transform duration-300">
+                    <a
+                        href="#"
+                        className={clsx(
+                            "z-50 relative block hover:scale-105 transition-all duration-500",
+                            isScrolled && "hidden xl:block"
+                        )}
+                    >
                         <img
                             src="/bilder/logo.webp"
                             alt="Hermann Stöger Logo"
@@ -74,7 +80,7 @@ export const Header = () => {
 
                     {/* Mobile Toggle */}
                     <button
-                        className="xl:hidden text-primary z-50 p-2 rounded-full bg-primary/10"
+                        className="xl:hidden text-primary z-50 p-2 rounded-full bg-primary/10 ml-auto"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <X /> : <Menu />}
