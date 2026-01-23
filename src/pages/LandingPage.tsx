@@ -96,7 +96,7 @@ export const LandingPage = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="pointer-events-auto max-w-5xl"
                     >
-                        <h1 className="text-6xl md:text-9xl font-serif text-white mb-8 leading-[0.9] tracking-tighter drop-shadow-2xl">
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-9xl font-serif text-white mb-8 leading-[1.2] md:leading-[1.1] lg:leading-[1.0] xl:leading-[0.9] tracking-tighter drop-shadow-2xl">
                             Küchen- <br />
                             management <br />
                             <span className="text-primary-red italic">das wirkt.</span>

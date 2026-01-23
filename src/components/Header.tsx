@@ -43,18 +43,18 @@ export const Header = () => {
                             alt="Hermann Stöger Logo"
                             className={clsx(
                                 "w-auto object-contain transition-all duration-500",
-                                isScrolled ? "h-16 md:h-20" : "h-24 md:h-32"
+                                isScrolled ? "h-16 xl:h-20" : "h-24 xl:h-32"
                             )}
                         />
                     </a>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-10">
+                    <nav className="hidden xl:flex items-center gap-10">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="text-xl md:text-2xl uppercase tracking-wider font-mono text-primary/80 hover:text-primary-red transition-colors"
+                                className="text-xl xl:text-2xl uppercase tracking-wider font-mono text-primary/80 hover:text-primary-red transition-colors"
                             >
                                 {link.name}
                             </a>
@@ -62,7 +62,7 @@ export const Header = () => {
                     </nav>
 
                     {/* Desktop CTA */}
-                    <div className="hidden md:block">
+                    <div className="hidden xl:block">
                         <Button
                             href="mailto:stoegerhermann4@gmail.com"
                             variant="primary"
@@ -74,7 +74,7 @@ export const Header = () => {
 
                     {/* Mobile Toggle */}
                     <button
-                        className="md:hidden text-primary z-50 p-2 rounded-full bg-primary/10"
+                        className="xl:hidden text-primary z-50 p-2 rounded-full bg-primary/10"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <X /> : <Menu />}
@@ -88,7 +88,7 @@ export const Header = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-background-cream z-40 flex flex-col items-center justify-center gap-12 md:hidden"
+                            className="fixed inset-0 bg-background-cream z-40 flex flex-col items-center justify-center gap-12 xl:hidden"
                         >
                             {navLinks.map((link, i) => (
                                 <motion.a
