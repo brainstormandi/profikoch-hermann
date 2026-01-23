@@ -33,8 +33,8 @@ export const Header = () => {
         >
             <div className="container mx-auto px-6">
                 <div className={clsx(
-                    "flex items-center justify-between transition-all duration-500 rounded-[2rem] px-8 border",
-                    isScrolled ? "glass-white py-3 border-primary/10 shadow-2xl" : "bg-transparent py-0 border-transparent"
+                    "flex items-center justify-between transition-all duration-500 rounded-[2rem] px-8",
+                    isScrolled ? "xl:glass-white py-3 xl:border xl:border-primary/10 xl:shadow-2xl" : "bg-transparent py-0 border border-transparent"
                 )}>
                     {/* Logo */}
                     <a
