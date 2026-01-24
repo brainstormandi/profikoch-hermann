@@ -18,7 +18,7 @@
   }
 
   body {
-    @apply bg-background-cream text-primary antialiased selection:bg-primary-red/20 selection:text-primary-red;
+    @apply bg-background-cream text-primary antialiased selection:bg-primary-red/20 selection:text-primary-red overflow-x-hidden;
     font-family: 'Inter', sans-serif;
   }
 

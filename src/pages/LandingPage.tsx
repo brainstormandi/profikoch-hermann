@@ -11,12 +11,12 @@ export const LandingPage = () => {
     const heroRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: heroRef,
-        offset: ["start start", "60% start"]
+        offset: ["start start", "end end"]
     });
 
-    // Content fades out in the first 30% of scroll
-    const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-    const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
+    // Content fades out late in the scroll sequence (between 60% and 90% of the way through)
+    const heroOpacity = useTransform(scrollYProgress, [0, 0.6, 0.9], [1, 1, 0]);
+    const heroScale = useTransform(scrollYProgress, [0, 0.6, 0.9], [1, 1, 0.95]);
 
     const schemaData = {
         "@context": "https://schema.org",
@@ -74,48 +74,50 @@ export const LandingPage = () => {
     };
 
     return (
-        <div className="bg-background-cream min-h-screen overflow-x-hidden">
+        <div className="bg-background-cream min-h-screen">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
             />
             <Header />
 
-            {/* HERO SECTION */}
-            <section ref={heroRef} className="relative h-screen bg-primary overflow-hidden">
-                <HeroSequence containerRef={heroRef} />
+            {/* HERO SECTION - Extended scroll area (250vh) */}
+            <section ref={heroRef} className="relative h-[250vh] bg-primary">
+                <div className="sticky top-0 h-screen w-full overflow-hidden">
+                    <HeroSequence containerRef={heroRef} />
 
-                {/* Content Overlay */}
-                <motion.div
-                    style={{ opacity: heroOpacity, scale: heroScale }}
-                    className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center z-10 pointer-events-none"
-                >
+                    {/* Content Overlay */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="pointer-events-auto max-w-5xl"
+                        style={{ opacity: heroOpacity, scale: heroScale }}
+                        className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center z-10 pointer-events-none"
                     >
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-9xl font-serif text-white mb-8 leading-[1.2] md:leading-[1.1] lg:leading-[1.0] xl:leading-[0.9] tracking-tighter drop-shadow-2xl">
-                            Küchen- <br />
-                            management <br />
-                            <span className="text-primary-red italic">das wirkt.</span>
-                        </h1>
-                        <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
-                            Strukturierte Abläufe, wirtschaftliche Menüplanung <br className="hidden md:block" />
-                            und Hygienesicherheit – individuell für Ihren Betrieb.
-                        </p>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-                            <Button
-                                href="mailto:stoegerhermann4@gmail.com"
-                                className="button-glow text-lg px-10 py-4"
-                                aria-label="Anfrage für Erstgespräch senden"
-                            >
-                                Erstgespräch anfragen
-                            </Button>
-                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="pointer-events-auto max-w-5xl"
+                        >
+                            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-9xl font-serif text-white mb-8 leading-[1.2] md:leading-[1.1] lg:leading-[1.0] xl:leading-[0.9] tracking-tighter drop-shadow-2xl">
+                                Küchen- <br />
+                                management <br />
+                                <span className="text-primary-red italic">das wirkt.</span>
+                            </h1>
+                            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                                Strukturierte Abläufe, wirtschaftliche Menüplanung <br className="hidden md:block" />
+                                und Hygienesicherheit – individuell für Ihren Betrieb.
+                            </p>
+                            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                                <Button
+                                    href="mailto:stoegerhermann4@gmail.com"
+                                    className="button-glow text-lg px-10 py-4"
+                                    aria-label="Anfrage für Erstgespräch senden"
+                                >
+                                    Erstgespräch anfragen
+                                </Button>
+                            </div>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
+                </div>
             </section>
 
             {/* HIGHLIGHTS SECTION - SEPARATE AREA BELOW HERO */}

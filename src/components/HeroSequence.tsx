@@ -17,14 +17,14 @@ export const HeroSequence: React.FC<HeroSequenceProps> = ({ containerRef: extern
     // Track either the provided external ref (the tall "track") or fall back to internal
     const { scrollYProgress } = useScroll({
         target: externalRef || internalRef,
-        offset: ["start start", "60% start"]
+        offset: ["start start", "end end"]
     });
 
-    // Smooth the progress to avoid jittery frame jumps
+    // Balanced spring for a premium feel that still reacts quickly enough
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 50,
-        damping: 30,
-        restDelta: 0.001
+        stiffness: 45,
+        damping: 35,
+        restDelta: 0.0001
     });
 
     // Preload images
@@ -129,12 +129,13 @@ export const HeroSequence: React.FC<HeroSequenceProps> = ({ containerRef: extern
     }
 
     return (
-        <div ref={internalRef} className="absolute inset-0 overflow-hidden bg-primary">
+        <div ref={internalRef} className="absolute inset-0 overflow-hidden bg-primary-dark">
             <canvas
                 ref={canvasRef}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover relative z-0"
             />
-            <div className="absolute inset-0 bg-primary/20 pointer-events-none" />
+            {/* Subtle overlay to blend the image sequence with the dark brand colors */}
+            <div className="absolute inset-0 bg-primary-dark/10 pointer-events-none z-10" />
         </div>
     );
 };
