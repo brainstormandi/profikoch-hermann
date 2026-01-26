@@ -263,21 +263,36 @@ export const LandingPage = () => {
                             className="order-1 md:order-2"
                         >
                             <span className="text-primary-red font-mono text-sm tracking-widest uppercase mb-6 block">Über mich</span>
-                            <h2 className="text-5xl md:text-7xl font-serif text-primary mb-8 leading-tight">
-                                Profikoch mit Fokus auf <span className="italic">Alltag.</span>
+                            <h2 className="text-4xl md:text-6xl font-serif text-primary mb-8 leading-tight">
+                                Profikoch mit Erfahrung, <br className="hidden xl:block" />
+                                <span className="italic">Verantwortung und Überblick.</span>
                             </h2>
                             <p className="text-xl text-primary/70 mb-8 leading-relaxed">
-                                Ich begleite Gastronomie- und Hotelbetriebe dabei, ihre Küche so aufzustellen, dass Qualität, Wirtschaftlichkeit und Hygienesicherheit Hand in Hand gehen.
+                                Ich begleite Gastronomie- und Hotelbetriebe dabei, ihre Küche so aufzustellen, dass Qualität, Wirtschaftlichkeit und Sicherheit dauerhaft zusammenpassen. Mein Fokus liegt auf praxistauglichen Lösungen, die im laufenden Betrieb funktionieren und vom Team getragen werden.
                             </p>
-                            <div className="bg-white p-10 rounded-3xl shadow-sm mb-8 border border-primary/5">
-                                <p className="text-primary/90 font-serif text-2xl mb-4">Mein Ansatz ist pragmatisch:</p>
-                                <p className="text-primary-red/80 font-mono text-sm tracking-tighter">
-                                    Analyse → Planung → Umsetzung → Schulung → Stabilisierung.
+
+                            <div className="mb-10 space-y-4">
+                                <h3 className="text-xl font-serif text-primary mb-4">Meine Erfahrung und Qualifikation auf einen Blick:</h3>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Über 40 Jahre Erfahrung in Küche, Organisation und Führung",
+                                        "Sicherheits- und Vertrauensperson, mit Blick auf Verantwortung, Abläufe und Teamstabilität",
+                                        "Ehemaliges Mitglied der österreichischen Koch-Nationalmannschaft mit internationaler Wettbewerbserfahrung"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-primary/70 text-lg">
+                                            <span className="mt-2.5 w-1.5 h-1.5 bg-primary-red rounded-full flex-shrink-0" />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="bg-white p-8 rounded-3xl shadow-sm border border-primary/5">
+                                <p className="text-lg text-primary/80 leading-relaxed">
+                                    <span className="font-serif text-xl text-primary block mb-2">Mein Arbeitsansatz ist klar strukturiert:</span>
+                                    Analyse, Planung, Umsetzung, Schulung und nachhaltige Stabilisierung. So entstehen Küchen- und Hygienesysteme, die nicht nur heute funktionieren, sondern langfristig Bestand haben.
                                 </p>
                             </div>
-                            <p className="text-xl text-primary/70 leading-relaxed">
-                                Keine theoretischen Konzepte, sondern Lösungen, die im laufenden Betrieb funktionieren.
-                            </p>
                         </motion.div>
                     </div>
                 </div>
@@ -294,6 +309,26 @@ export const LandingPage = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                         {[
                             {
+                                title: "Consulting",
+                                items: ["Analyse von Betrieb, Abläufen und Wirtschaftlichkeit", "Klare, umsetzbare Handlungsempfehlungen", "Begleitung bei Veränderungsprozessen"],
+                                color: "bg-primary"
+                            },
+                            {
+                                title: "Küchenkonzepte",
+                                items: ["Entwicklung praxistauglicher Küchenkonzepte", "Optimierte Arbeitswege und Abläufe", "Anpassung an Betriebsgröße und Angebot"],
+                                color: "bg-primary-red"
+                            },
+                            {
+                                title: "Teambildung",
+                                items: ["Aufbau stabiler Küchenteams", "Klare Rollen und Verantwortlichkeiten", "Unterstützung bei Einarbeitung und Motivation"],
+                                color: "bg-support-blue"
+                            },
+                            {
+                                title: "Strategieberatung",
+                                items: ["Langfristige Ausrichtung von Küche und Angebot", "Unterstützung bei wichtigen Entscheidungen", "Verbindung von Qualität und Wirtschaftlichkeit"],
+                                color: "bg-secondary-red"
+                            },
+                            {
                                 title: "Küchenmanagement",
                                 items: ["Stationsaufbau & Team-Organisation", "Mise-en-place-Strukturen", "Tages- & Ablaufpläne"],
                                 color: "bg-primary-red"
@@ -304,24 +339,19 @@ export const LandingPage = () => {
                                 color: "bg-primary"
                             },
                             {
-                                title: "Mietkoch",
-                                items: ["Temporäre Unterstützung", "Saisonspitzen abfangen", "Stabiler Serviceablauf"],
-                                color: "bg-support-blue"
-                            },
-                            {
                                 title: "Menüplanung",
                                 items: ["Konzept-Optimierung", "Wareneinsatz & Food Waste", "Standardrezepte"],
                                 color: "bg-secondary-red"
                             },
                             {
-                                title: "Beratung & Coaching",
-                                items: ["Führung & Kommunikation", "Kennzahlen & Bestellprozesse", "Begleitung bei Change"],
-                                color: "bg-primary"
-                            },
-                            {
                                 title: "HACCP & Hygiene",
                                 items: ["Gefahrenanalyse & CCPs", "Reinigungs- & Kontrollpläne", "Mitarbeiterschulung"],
                                 color: "bg-primary-red"
+                            },
+                            {
+                                title: "Mietkoch",
+                                items: ["Temporäre Unterstützung", "Saisonspitzen abfangen", "Stabiler Serviceablauf"],
+                                color: "bg-support-blue"
                             }
                         ].map((service, i) => (
                             <motion.div
