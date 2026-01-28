@@ -37,7 +37,7 @@ export const Impressum = () => {
                                     <div className="text-xl text-primary leading-relaxed">
                                         <p>Mobil: +43 676 73 44 834</p>
                                         <p>E-Mail: <a href="mailto:stoegerhermann4@gmail.com" className="text-primary-red hover:underline transition-all">stoegerhermann4@gmail.com</a></p>
-                                        <p>Web: <a href="https://hermann-stoeger.at" className="text-primary-red hover:underline transition-all">www.hermann-stoeger.at</a></p>
+                                        <p>Web: <a href="https://hermann-stöger-küchenmeister.at" className="text-primary-red hover:underline transition-all">www.hermann-stöger-küchenmeister.at</a></p>
                                     </div>
                                 </div>
                             </section>

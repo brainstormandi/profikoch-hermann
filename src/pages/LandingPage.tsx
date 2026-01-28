@@ -24,7 +24,7 @@ export const LandingPage = () => {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://hermann-stoeger.at/#organization",
+                "@id": "https://hermann-stöger-küchenmeister.at/#organization",
                 "name": "Hermann Stöger | Küchenmanagement & Beratung",
                 "image": "/bilder/profikoch hermann stoeger.jpg",
                 "description": "Professionelle Beratung für Gastronomie und Hotellerie in den Bereichen Küchenmanagement, HACCP und Menüplanung.",
@@ -46,7 +46,7 @@ export const LandingPage = () => {
                 "@type": "Person",
                 "name": "Hermann Stöger",
                 "jobTitle": "Küchenmeister & Berater",
-                "url": "https://hermann-stoeger.at/",
+                "url": "https://hermann-stöger-küchenmeister.at/",
                 "sameAs": [],
                 "description": "Erfahrener Küchenmeister mit Auszeichnungen im Gault Millau und internationaler Wettbewerbserfahrung."
             },
