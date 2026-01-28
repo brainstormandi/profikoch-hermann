@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import { Button } from './ui/Button';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -17,11 +18,11 @@ export const Header = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Leistungen', href: '#services' },
-        { name: 'Vorteile', href: '#benefits' },
-        { name: 'Über mich', href: '#about' },
-        { name: 'Referenzen', href: '#testimonials' },
-        { name: 'FAQ', href: '#faq' },
+        { name: 'Leistungen', href: '/#services' },
+        { name: 'Vorteile', href: '/#benefits' },
+        { name: 'Über mich', href: '/#about' },
+        { name: 'Referenzen', href: '/#testimonials' },
+        { name: 'FAQ', href: '/#faq' },
     ];
 
     return (
@@ -37,8 +38,8 @@ export const Header = () => {
                     isScrolled ? "xl:glass-white py-3 xl:border xl:border-primary/10 xl:shadow-2xl" : "bg-transparent py-0 border border-transparent"
                 )}>
                     {/* Logo */}
-                    <a
-                        href="#"
+                    <Link
+                        to="/"
                         className={clsx(
                             "z-50 relative block hover:scale-105 transition-all duration-500",
                             isScrolled && "hidden xl:block"
@@ -52,7 +53,7 @@ export const Header = () => {
                                 isScrolled ? "h-16 xl:h-20" : "h-24 xl:h-32"
                             )}
                         />
-                    </a>
+                    </Link>
 
                     {/* Desktop Nav */}
                     <nav className="hidden xl:flex items-center gap-10">
