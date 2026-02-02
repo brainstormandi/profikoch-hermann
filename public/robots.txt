@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.hermann-stöger-küchenmeister.at/sitemap.xml
